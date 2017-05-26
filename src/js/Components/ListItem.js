@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import createReactClass from 'create-react-class';
 
+
+//此组件是添加一条的信息
 var ListItem = createReactClass({
     onHandleToggle: function (){
        this.props.toggleInvite(this.props.id);

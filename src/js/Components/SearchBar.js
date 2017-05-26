@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import createReactClass from 'create-react-class';
 
+//搜索的信息提示及展示的被邀请人数
 var SearchBar = createReactClass({
     onHandleText : function () {
        this.props.filterText(this.refs.inp.value);

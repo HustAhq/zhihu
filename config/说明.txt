@@ -1,0 +1,12 @@
+
+主文件有：index.js
+辅文件 ：List.js  ListItem.js  SearchBar.js
+
+顶层AppInvite组件
+
+实现知乎邀请组件的仿写，
+用 React 配合 es6, 构建了四个组件，用 props 使得数据流更加清晰，
+用 state 对内部数据保存，实现了对邀请人员的添加和删除，并通过搜索
+的字符对内容进行筛选，利用Webpack进行打包
+
+

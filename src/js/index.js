@@ -11,18 +11,19 @@ import '../less/AppInvite.less';
 var AppInvite = createReactClass({
     getInitialState : function () {
        return {
-           list : [],
-           orderListInvite : [],
-           filterText : ''
+           list : [], //data
+           orderListInvite : [],//被邀请的人
+           filterText : '' //筛选文字信息
        }
     },
-    componentDidMount : function () {
+    componentDidMount : function () {//给data里面都添加一个canInvite属性判断
+                                    //是否被邀请
         var list = [];
         var data = this.props.data;
         var togglePerson = null;
         data.forEach(function (ele, index){
            ele.canInvite = true;
-           list.push(ele)
+           list.push(ele);
         })
         this.setState({
             list: list
@@ -30,6 +31,7 @@ var AppInvite = createReactClass({
     },
     toggleInvite: function (id) {
        var togglePerson = null;
+       //判断被点击的是哪一个人 id 来识别
        var list = this.state.list.map(function (ele, index){
            if(ele.id === id){
                togglePerson = ele;
@@ -42,6 +44,7 @@ var AppInvite = createReactClass({
        })
 
        var orderList = [...this.state.orderListInvite];
+      //实现了点击邀请后将人名字都添加到后面
        if(!togglePerson.canInvite){
            orderList.push(togglePerson);
        }else{
@@ -54,12 +57,14 @@ var AppInvite = createReactClass({
        })
        
     },
+    //筛选文本信息的函数
     onfilterText: function (text){
         this.setState({
             filterText: text
         })
     },
     render: function () {
+         /*通过props属性传递数据*/
         return (
              <div className="wrapper">
                 <SearchBar data={this.state.orderListInvite} filterText={this.onfilterText}></SearchBar>
